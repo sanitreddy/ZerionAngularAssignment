@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+   <head>
+      <title></title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+      <script src="service.js"></script>
+      <style>
+         .thumbnail{
+         word-wrap: break-word;
+         }
+         .btn-primary{
+         margin-right: 5px;
+         }
+         .btn-success{
+         margin-right: 5px;
+         }
+         .btn-info{
+         margin-right: 5px;
+         }
+      </style>
+   </head>
+   <body>
+      <div ng-controller="Hello">
+         <div class="container">
+            <br>
+            <table class="table table-striped" ng-show="view">
+               <thead>
+                  <tr>
+                     <th scope="col">ID</th>
+                     <th scope="col">Name</th>
+                     <th scope="col">Description</th>
+                     <th scope="col">Image URL</th>
+                     <th scope="col">Operation</th>
+                     <th scope="col">Operation</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr ng-repeat="i in doc">
+                     <td>{{i._id}}</td>
+                     <td>{{i.name}}</td>
+                     <td>{{i.description}}</td>
+                     <td>{{i.imgs[0].url}}</td>
+                     <td><button type="button" class="btn btn-info" ng-click ="getDocId(i._id)">Update</button></td>
+                     <td><button type="button" class="btn btn-danger" ng-click="deleteDoc(i._id)">Delete</button></td>
+                  </tr>
+               </tbody>
+            </table>
+            <br>
+            <div class="row" ng-show="!view">
+               <div ng-repeat = "i in doc">
+                  <div class="col-lg-4 col-sm-6">
+                     <div class="thumbnail">
+                        <p><strong>ID :</strong> {{i._id}}</p>
+                        <p><strong>Name :</strong> {{i.name}}</p>
+                        <p><strong>Description :</strong> {{i.description}}</p>
+                        <p><strong>Image URL :</strong> {{i.imgs[0].url}}</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <input type="button" ng-model = "table" ng-click="getDoc('table')" class="btn btn-primary" value="Table View">
+            <input type="button" ng-model = "thumbnail" ng-click="getDoc('thumbnail')" class="btn btn-success" value="Thumbnail View">
+            <button type="button" class="btn btn-info" onclick="location.href = 'detailpage.html'">Create a New Document</button>
+         </div>
+      </div>
+   </body>
+</html>

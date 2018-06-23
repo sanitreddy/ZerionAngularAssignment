@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+   <head>
+      <title>Hello AngeularJS</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+      <script src="service.js"></script>
+   </head>
+   <body>
+      <div ng-controller="Hello">
+         <div class="container">
+            <h3>Sign Up</h3>
+            <div class="form-group">
+               <label for="firstName">
+                  <h4>First name</h4>
+               </label>
+               <input type="text" class="form-control" id="firstName" ng-model = "user.firstName" placeholder="Enter First name" style="width: 500px">
+            </div>
+            <div class="form-group">
+               <label for="lastName">
+                  <h4>Last name</h4>
+               </label>
+               <input type="text" class="form-control" id="lastName" ng-model = "user.lastName" placeholder="Enter Last name" style="width: 500px">
+            </div>
+            <div class="form-group">
+               <label for="username">
+                  <h4>User name</h4>
+               </label>
+               <input type="text" class="form-control" id="username" ng-model = "user.username" placeholder="Enter User name" style="width: 500px">
+            </div>
+            <button ng-click="register()" class="btn btn-primary">Register</button><br><br>
+            <button type="button" class="btn btn-primary" ng-show = "isDisplay" onclick="location.href = 'mainpage.html'">Next</button><br>
+            <strong>{{successMessage}}</strong><br>
+            <strong ng-hide="errorMessage1">{{errorMessage}}</strong>
+         </div>
+      </div>
+   </body>
+</html>
